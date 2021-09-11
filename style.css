@@ -1,0 +1,80 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+     background-image: url(./images/background4.jpg)  ;
+     /* background-repeat: ; */
+    background-size: cover;
+    font-family: 'Acme', sans-serif;
+
+}
+.container{
+    position: relative;
+    /* display:flex ; */
+    /* align-content: center; */
+    width: 43vw;
+    height: 30vw;
+    /* background-color: blueviolet; */
+    margin:auto;
+    margin-top: 2%;
+    text-align: center;
+    
+}
+
+.container2{
+    position: absolute;
+    width: 40vw;
+    height: 25vw;
+    margin-top: auto;
+    vertical-align: middle;   
+    padding: 10% 7% 10% 3%;
+}
+h1{
+    font-size: 269%;
+    font-weight: 800;
+}
+input,button{
+    width: 61%;
+    height: -39%;
+    border-radius: 6px;
+    padding: 2%;
+    margin: 2% 2%;
+    background:none ;
+    border: 2px solid black;
+
+}
+input::placeholder{
+    font-weight: 200;
+    color: black;
+    font-family: 'Acme', sans-serif;
+}
+    
+
+button{
+    color: rgb(0, 0, 0);
+    font-family: 'Acme', sans-serif;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 96%;
+    cursor: pointer;
+
+}
+button:hover{
+    background-color: rgba(126, 134, 128, 0.6);
+
+}
+input:focus{
+    border: 2px solid rgb(69, 241, 69);
+}
+
+
+.text{
+    font-size: 110%;
+    
+}
+a{
+    text-decoration: none;
+    color: black;
+}
