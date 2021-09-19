@@ -7,34 +7,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
-    <script src="app.js"></script>
+
+
 </head>
 
 <body>
     <div class="container">
-        <div class="container2">
+        <div id="login_box" class="container2">
             <div>
                 <div>
-                <legend>
-                    <h3>Team Management System</h3>
-                </legend>
-                <div id="login">
-                    <h1>Login</h1>
-                    <p class="text">please enter your login Email/Password</p>
+                    <legend>
+                        <h3>Pop-A-Baloon Game</h3>
+                    </legend>
+                    <div id="login">
+                        <h1>Login</h1>
+                        <p class="text">please enter your login Email/Password</p>
+                    </div>
+                    <div class="email"><input class="inputs" type="email" id="loginemail" placeholder="Username/Email">
+                    </div>
+                    <div class="pass"><input class="inputs" type="email" placeholder="Password" id="loginpassword">
+                    </div>
+                    <div>
+                        <p class="text"><a href="#"> Forgot Password?</a></p>
+                    </div>
+                    <div class="buttons"><button onclick="login()">Login</button></div>
+                    <div class="buttons"><button onclick="signup()"> Signup</button></a></div>
+
+
+
                 </div>
-                <div class="email"><input class="inputs" type="email" placeholder="Username/Email"></div>
-                <div class="pass"><input class="inputs" type="email" placeholder="Password"></div>
-                <div>
-                    <p class="text"><a href="#"> Forgot Password?</a></p>
-                </div>
-                <div class="buttons"><button>Login</button></div>
-                <div class="buttons"><a href="./signup.html"><button> Create Account</button></a></div>
-
-
-
             </div>
         </div>
+        <div id="welcome_box">
+            <h3> Welcome User: <span id="user"></span> </h3>
+            <h3> Time Logged in Last:</h3>
+            <div>
+                <button onclick="logout()">Logout</button>
+                <div class="wrapper">
+                    <h1>Pop the balloons by moving</br>your mouse over them</h1>
+                    <div id="yay-no-balloons"><span class="blue">Wow!</span> All balloons popped!</div>
+                    <div id="balloon-gallery">
+                        <div class="balloon"></div>
+                        <div class="balloon"></div>
+                        <div class="balloon"></div>
+                        <div class="balloon"></div>
+                        <div class="balloon"></div>
+                        <div class="balloon"></div>
+                        <div class="balloon"></div>
+                        <div class="balloon"></div>
+                        <div class="balloon"></div>
+                        <div class="balloon"></div>
+                        <div class="balloon"></div>
+                        <div class="balloon"></div>
+                        <div class="balloon"></div>
+                        <div class="balloon"></div>
+                        <div class="balloon"></div>
+                        <div class="balloon"></div>
+
+                    </div>
+
+                </div>
+            </div>
         </div>
+
+
+
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+        <script src="app.js"></script>
+
+
+        <script type="module">
+            var firebaseConfig = {
+                apiKey: "AIzaSyDD12e7svrntWJwzdpmduLHo2nV0Cj3-r8",
+                authDomain: "pop-a-balloon-f1617.firebaseapp.com",
+                databaseURL: "https://pop-a-balloon-f1617-default-rtdb.firebaseio.com",
+                projectId: "pop-a-balloon-f1617",
+                storageBucket: "pop-a-balloon-f1617.appspot.com",
+                messagingSenderId: "412576602512",
+                appId: "1:412576602512:web:13db832b43e9f970d2bb15"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.auth().onAuthStateChanged((user) => {
+                if (user) {
+                    console.log(user);
+                  
+
+                        document.getElementById("user").innerHTML = user.email;
+                        document.getElementById("login_box").style.display = "none";
+                        document.getElementById("welcome_box").style.display = "block";
+                    } else {
+                        document.getElementById("login_box").style.display = "block";
+                        document.getElementById("welcome_box").style.display = "none";
+                    }
+            });
+        </script>
 </body>
 
 </html>
